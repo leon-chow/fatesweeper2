@@ -15,13 +15,7 @@ class _BoardState extends State<Board> {
     );
   }
 
-  buildBoard() {
-
-    for (int i = 0; i < 100; i++) {
-      
-    }
-    return Container(
-
-    );
+  Widget buildBoard() {
+    
   }
 }

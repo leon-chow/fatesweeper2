@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'board.dart';
+import 'tile.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Fatesweeper Main'),
+      home: MyHomePage(title: 'Fatesweeper'),
     );
   }
 }
@@ -38,7 +39,21 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Board(),
+      body: buildBoardView(),
+    );
+  }
+
+  Widget buildBoardView() {
+    List<Tile> tiles = <Tile>[];
+    int tileCount = 10;
+    for (int i = 0; i < 100; i++) {
+      tiles.add(Tile(i, 50.0, 50.0, false, false));
+    }
+    return GridView.count(
+      crossAxisCount: 10,
+      children: tiles.map<Widget>((Tile tile) {
+        return tile.buildTile(tile);
+      }).toList(),
     );
   }
 }
