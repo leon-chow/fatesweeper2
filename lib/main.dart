@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'views/board.dart';
-import 'model/tile.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,12 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Fatesweeper 2.0',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Board(title: 'Fatesweeper'),
+      home: Board(title: 'Fatesweeper 2.0'),
     );
   }
 }
