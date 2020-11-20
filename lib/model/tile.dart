@@ -10,14 +10,20 @@ class Tile {
   Widget buildTile(Tile tile) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.orange,
+        color: Colors.white,
         border: Border.all(
           color: Colors.black
-        ) 
+        ),
+        image: DecorationImage(image: AssetImage('images/minesweeper_tile.png')),
       ),
-      height: 50,
-      width: 25,
-      child: Text("Tile #${tile.id+1}"),
+      child: FlatButton(
+        child: Container(
+          child: Text("${tile.id+1}"),
+        ),
+        onPressed: () {
+          print('flipped tile ${tile.id+1}');
+        },
+      ),
     );
   }
 }
