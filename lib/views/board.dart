@@ -64,11 +64,11 @@ class _BoardState extends State<Board> {
           color: Colors.black
         ),
         // conditional image, will dissappear if user reveals screen
-        image: tile.isFlipped == false && tile.hasMine == false ? DecorationImage(image: AssetImage('images/minesweeper_tile.png')) : null,
+        image: tile.isFlipped == false ? DecorationImage(image: AssetImage('images/minesweeper_tile.png')) : null,
       ),
       child: FlatButton(
         child: Container(
-          child: Text("${tile.id+1}"),
+          child: Text(""),
         ),
         // handle tile flipping
         onPressed: () {
@@ -171,6 +171,19 @@ class _BoardState extends State<Board> {
       } 
     }
   }
+
+  // recursive function that will keep revealing tiles that were clicked next
+  // TODO: recursively reveal tiles until countAdjMines is not 0, keep going upward to reveal
+  /*void revealAdjacentTiles(Tile tile) {
+    // adjacent top tile check
+    if (tile.id + 1 - tileCount > 0) {
+      if (tiles[tile.id-tileCount].hasMine == false && tiles[tile.id-tileCount].isFlipped == false) {
+        tiles[tile.id-tileCount].isFlipped = true;
+      } if (!hasAdjacentMines(tiles[tile.id-tileCount])) {
+        revealAdjacentTiles(tiles[tile.id-tileCount]);
+      }
+    } 
+  }*/
 
   bool hasAdjacentMines(Tile tile) {
     // top left, top middle, top right adjacent mine check
